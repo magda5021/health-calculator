@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Health Calculator</title>
+    <script src = "main.js"></script>
+
+</head>
+
+<!--
+    Author: Magdalena Frackiewicz
+    Project: MatchmakerForTheWeb
+
+    All rights reserved.
+-->
+
+<body>
+    <h1>Health Calculator
+        This program will help you to identify if you qualify for an insurance. This assessment is used by all insurance companies. 
+        The amount of risk will  be determined by your body mass index, blood pressure, age, and familly history of disease. 
+        Let's begin by answering following questions. 
+        </h1>
+
+        <form>
+            <label for="age">What is your age?</label><br>
+            <input type="number" id="age" name="age"><br><br/>
+            <label for="height">What is your height in feet ( i.e. height between 5'00 and 5'6" enter 5 and height between
+                5'7" to 5'12" enter 6)?</label><br>
+            <input type="number" id="inputFeet" name="height" placeholder="Feet"
+            oninput="HeightConverter(this.value)" onchange="HeightConverter(this.value)">
+            Meters: <span id="outputMeters"></span><br><br/>
+            <label for="weight">What is your weight in pounds?</label><br>
+            <input type="number" id="inputPounds" name="weight" placeholder="Pounds"
+            oninput="WeightConverter(this.value)" onchange="WeightConverter(this.value)">
+            Kilograms: <span id="outputKilograms"></span><br><br/>
+            <label for="sysbp">What is your systolic blood pressure?</label><br>
+            <input type="number" id="sysbp" name="sysbp"><br><br/>
+            <label for="diasbp">What is your diastolic blood pressure?</label><br>
+            <input type="number" id="diasbp" name="diasbp"><br><br/>
+        <p> Do you have familly history of the following diseases?:</p>
+            <input type = "radio" id = "mc" name="Diabetes" value = "Diabetes">Diabetes<br> 
+            <input type = "radio" id = "mc" name="Cancer" value = "Cancer">Cancer<br>
+            <input type = "radio" id = "mc" name="Alzheimer" value = "Alzheimer">Alzheimer<br>
+            <input type = "radio" id = "mc" name="None" value = "None">None<br><br/>
+
+            <button onclick="BMI ()">Calculate Total Risk:</button>
+            <p id = "Body Mass Index"></p>
+       
+          </form>
+<script>
+    function HeightConverter(valNum) {
+        document.getElementById("outputMeters").innerHTML=valNum/3.2808;
+    }
+
+    function WeightConverter(valNum) {
+        document.getElementById("outputKilograms").innerHTML=valNum/2.2046;
+
+        
+    }
+    function BMI() {
+        var outputMeters = document.getElementById("HeightConverter").value;
+        var outputKilograms = document.getElementById("WeightConverter").value;
+
+        BMI.innerHTML = Math.round(outputKilograms / (out*HeightConverter));
+        getDescription(BMI.innerHTML);
+        document.getElementById("Body Mass Index").innerHTML = "Your BMI is: " + BMI + "<br /><br>"+ response;
+        console.log("Body Mass Index+"+BMI);
+    }
+
+       // return (WeightConverter/(HeightConverter * HeightConverter));
+    //let bmiResult = BMI();
+   
+    //let response;
+    //if (BMI >=18.5 && BMI <=24.9) {
+       // response = "Normal";
+   // }   else if (BMI >=25 && BMI <=29.9) {
+       // response = "Overweight";
+    //}   else if (BMI>=30 && BMI<=34.9) {
+      //  response = "Obesity";
+  //  }
+    //document.getElementById("Body Mass Index").innerHTML = "Your BMI is: " + BMI + "<br /><br>"+ response;
+//}
+
+
+
+
+
+    
+
+</script>
+
+   
+</body>
+</html>
